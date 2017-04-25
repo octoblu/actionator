@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- '7'
+branches:
+  only:
+  - "/^v[0-9]/"
+after_success:
+- npm run coverage
+- npm run mocha:json
+- bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.octoblu.com/bash)
+deploy:
+  provider: npm
+  email: serveradmin@octoblu.com
+  api_key:
+    secure: BqVJ/nu1jqHsZRBvgXbKmg0vI944Gc5eizkJ0y4BmEQRwXkRV7ypomYO0SqryNBfbsI8tWRcnyRUeYp+RwxocxbdgFudLH8lquZEPzmsVRtnlEmyYZhtNG1gQmBc+hRUy7oNE5Ykgp9y6tOMVrFLIoqVwH/NgkiI/yBS9mkdbubsTU59+A/nH+VnuUM3tTrcvBSdBcopPgn8rPRTSXJFx7Lp1sfr+yLf1UfNCSReUzx3vpemRD9Bg/4/7pWDR0a2c39TpNaq7s4zhiosegJUcU3dsVNGbsdPs4oOssOald1X0NBTdiC4Gsmkfe0JoLBsyWP5rWFqdSwgNslxOcHHm/0lI1GIk3ZJV5zpJ1jUyirEKPsZXDCZe37E0x2JGSsJj3vyhJYx+TT0QyiwTxJ897B5iyRwkQNYNhCcynauu3SRP/n0DKYL/nM0wPl943N68JZul4UZXFodgoRz/0jjy3pOCDfIM+E6qUsgEBuz2xb5nqO01SfKQwOEClL0hLcIzxZiUgPhMmx6lb0JLzDg4P9fAmu38ieOSVHNpiCsWfNmYn/16PqkSIMdb7u98ygb8tpEDQjhKUSXqvWfqfh7CtQE29IXHueV9TpfPCE4hXkxQjPnCQBf8Tms11uPyTJQHt3D99dqq6CwEzdeoOOPZHvVAzQqXlBQkP14SWbKux8=
+  on:
+    tags: true
+    repo: octoblu/actionator

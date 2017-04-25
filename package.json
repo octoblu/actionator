@@ -1,0 +1,46 @@
+{
+  "name": "actionator",
+  "version": "1.0.0",
+  "description": "Some crazy parallelized / serialized async library - blame @peterdemartini",
+  "main": "index.js",
+  "scripts": {
+    "start": "node command.js",
+    "test": "mocha",
+    "coverage": "nyc npm test",
+    "mocha:json": "mocha --reporter json > coverage/mocha.json",
+    "test:watch": "mocha -w -R mocha-multi --reporter-options spec=-,mocha-osx-reporter=-"
+  },
+  "repository": "git@github.com:octoblu/actionator.git",
+  "author": "Octoblu, Inc <npm@octoblu.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.3.0",
+    "coffee-script": "^1.12.5",
+    "debug": "^2.6.4",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "simple-benchmark": "^1.0.11"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-subset": "^1.5.0",
+    "env-test": "^1.0.0",
+    "mocha": "^3.3.0",
+    "mocha-multi": "^0.11.0",
+    "mocha-osx-reporter": "^0.1.2",
+    "nyc": "^10.2.0",
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.9.0"
+  },
+  "nyc": {
+    "cache": true,
+    "reporter": [
+      "text-summary",
+      "lcov",
+      "json"
+    ],
+    "extension": [
+      ".coffee"
+    ]
+  }
+}
