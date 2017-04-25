@@ -2,7 +2,7 @@ _               = require 'lodash'
 async           = require 'async'
 moment          = require 'moment'
 SimpleBenchmark = require 'simple-benchmark'
-debug           = require('debug')('smartspaces-verifier-instant-meeting:actionator')
+debug           = require('debug')('actionator')
 
 class Actionator
   constructor: ->
@@ -10,11 +10,11 @@ class Actionator
     @benchmarks = {}
     @_beforeEach = (next) => next()
 
-  beforeEach: (@_beforeEach) =>
-
   add: (operation, fn) =>
     @steps[operation] ?= []
     @steps[operation].push fn
+
+  beforeEach: (@_beforeEach) =>
 
   run: (callback) =>
     debug 'running...'

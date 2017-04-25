@@ -12,9 +12,21 @@ For every instance of Actionator, you can `add` action to a task (grouped by the
 
 Add a step to a task name (specificed as a string in the first argument). Calling `fn` will break end all actions.
 
+### `->beforeEach(fn)`
+
+Run this function before each task.
+
 ### `->run(fn)`
 
 Run all actions. `fn` will be called with an `error` and `stats`
+
+### `->stats()`
+
+Returns benchmarks for each task.
+
+### `->stat(string)`
+
+Returns benchmarks for a task.
 
 ## Example
 
@@ -39,7 +51,8 @@ actions.add 'bar', (next) =>
     console.log 'this will be the last step ran'
     next()
   , 100
-actions.run (error) =>
+actions.run (error, stats) =>
   return console.error error if error?
   console.log 'All steps are done'
+  console.log stats
 ```
