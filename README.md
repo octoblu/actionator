@@ -1,6 +1,6 @@
 # actionator
 
-Some crazy parallelized / serialized async library - blame @peterdemartini
+Some crazy combination of parallelized / serialized async library - blame @peterdemartini
 
 ## Explanation
 
@@ -8,9 +8,9 @@ For every instance of Actionator, you can `add` action to a task (grouped by the
 
 ## Usage
 
-### `->add(taskName, callback)`
+### `->add([<taskName>, <actionName>], callback)`
 
-Add a step to a task name (specified as a string in the first argument). Calling the callback with an error will short circuit the entire flow.
+Add a step to be performed in parallel grouped by the optional taskName. Additionally calling it with an optional actionName (second argument) as a label. Calling the callback with an error will short circuit the entire flow.
 
 ### `->beforeEach(callback)`
 

@@ -1,6 +1,6 @@
 {
   "name": "actionator",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Some crazy parallelized / serialized async library - blame @peterdemartini",
   "main": "index.js",
   "scripts": {
