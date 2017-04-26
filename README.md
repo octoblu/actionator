@@ -8,15 +8,15 @@ For every instance of Actionator, you can `add` action to a task (grouped by the
 
 ## Usage
 
-### `->add(string, fn)`
+### `->add(taskName, callback)`
 
-Add a step to a task name (specificed as a string in the first argument). Calling `fn` will break end all actions.
+Add a step to a task name (specified as a string in the first argument). Calling the callback with an error will short circuit the entire flow.
 
-### `->beforeEach(fn)`
+### `->beforeEach(callback)`
 
 Run this function before each task.
 
-### `->run(fn)`
+### `->run(callback)`
 
 Run all actions. `fn` will be called with an `error` and `stats`
 
